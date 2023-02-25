@@ -2,7 +2,12 @@
     "name": "Capstone-Industrial_Mobile_Cart",
     "description": "Node red file for industrial mobile cart. this allows reading tags from ignition and sending data bi-directional with an ESP32 NODE called Master Node ",
     "version": "0.0.1",
-    "dependencies": {},
+    "dependencies": {
+        "node-red-contrib-aedes": "0.9.0",
+        "node-red-contrib-ignition-nodes": "1.5.10",
+        "node-red-contrib-mqtt-connection-check": "0.1.2",
+        "node-red-contrib-mqtt-plus": "0.0.7"
+    },
     "node-red": {
         "settings": {
             "flowFile": "Bismark_Capstone.json",

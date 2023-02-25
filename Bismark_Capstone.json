@@ -2,7 +2,7 @@
     {
         "id": "8b1ca1acfb108a49",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "Capstone",
         "disabled": false,
         "info": "",
         "env": []
@@ -23,12 +23,12 @@
         "ssl": false,
         "tls": "",
         "defaultTagProvider": "",
-        "name": ""
+        "name": "Ignition Server"
     },
     {
         "id": "a7dd8de6be425e1b",
         "type": "mqtt-sparkplug-broker",
-        "name": "",
+        "name": "Local MQTT test",
         "deviceGroup": "SparkplugBiz",
         "eonName": "node-red MQTT",
         "broker": "localhost",
@@ -46,7 +46,7 @@
     {
         "id": "22f999be89dd1725",
         "type": "mqtt-plus-broker",
-        "name": "",
+        "name": "Local Machine MQTT Connection Par",
         "broker": "localhost",
         "port": "1883",
         "clientid": "",
@@ -64,7 +64,7 @@
     {
         "id": "1d85ac6d05fa4e7c",
         "type": "mqtt-broker",
-        "name": "",
+        "name": "AEDES MQTT node connection PAR",
         "broker": "localhost",
         "port": "1884",
         "clientid": "ESP32_MASTER_mqtt",
@@ -90,47 +90,6 @@
         "willMsg": {},
         "userProps": "",
         "sessionExpiry": ""
-    },
-    {
-        "id": "47a469b15c9c5f27",
-        "type": "mqtt-broker",
-        "name": "",
-        "broker": "localhost",
-        "port": "1885",
-        "clientid": "",
-        "autoConnect": true,
-        "usetls": false,
-        "protocolVersion": "4",
-        "keepalive": "60",
-        "cleansession": true,
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthPayload": "",
-        "birthMsg": {},
-        "closeTopic": "",
-        "closeQos": "0",
-        "closePayload": "",
-        "closeMsg": {},
-        "willTopic": "",
-        "willQos": "0",
-        "willPayload": "",
-        "willMsg": {},
-        "userProps": "",
-        "sessionExpiry": ""
-    },
-    {
-        "id": "0d831bd9ba588536",
-        "type": "mqtt-sparkplug-broker",
-        "name": "Local Host",
-        "deviceGroup": "My Devices",
-        "eonName": "Node-Red",
-        "broker": "localhost",
-        "port": "1883",
-        "clientid": "",
-        "usetls": false,
-        "protocolVersion": "4",
-        "keepalive": "60",
-        "cleansession": true
     },
     {
         "id": "fd8024edbc935394",
