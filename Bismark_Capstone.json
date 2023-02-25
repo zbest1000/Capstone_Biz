@@ -96,7 +96,7 @@
         "type": "debug",
         "z": "8b1ca1acfb108a49",
         "name": "Ignition Tag Broswer Display",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
