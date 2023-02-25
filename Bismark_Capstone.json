@@ -161,7 +161,7 @@
         "type": "debug",
         "z": "8b1ca1acfb108a49",
         "name": "All Errors",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
