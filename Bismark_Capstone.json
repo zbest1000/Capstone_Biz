@@ -1,0 +1,1025 @@
+[
+    {
+        "id": "8b1ca1acfb108a49",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "98ff32b1de6f8bfa",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d7db35ef916ddc59",
+        "type": "ignition-server",
+        "hostname": "localhost",
+        "port": "8088",
+        "ssl": false,
+        "tls": "",
+        "defaultTagProvider": "",
+        "name": ""
+    },
+    {
+        "id": "a7dd8de6be425e1b",
+        "type": "mqtt-sparkplug-broker",
+        "name": "",
+        "deviceGroup": "SparkplugBiz",
+        "eonName": "node-red MQTT",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "heloo",
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "enableStoreForward": false,
+        "compressAlgorithm": "",
+        "aliasMetrics": true,
+        "primaryScada": ""
+    },
+    {
+        "id": "22f999be89dd1725",
+        "type": "mqtt-plus-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "birthTopic": "hey",
+        "birthQos": "0",
+        "birthPayload": ""
+    },
+    {
+        "id": "1d85ac6d05fa4e7c",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1884",
+        "clientid": "ESP32_MASTER_mqtt",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "1",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "1",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "1",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "47a469b15c9c5f27",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1885",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "0d831bd9ba588536",
+        "type": "mqtt-sparkplug-broker",
+        "name": "Local Host",
+        "deviceGroup": "My Devices",
+        "eonName": "Node-Red",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true
+    },
+    {
+        "id": "fd8024edbc935394",
+        "type": "debug",
+        "z": "8b1ca1acfb108a49",
+        "name": "Ignition Tag Broswer Display",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "977c7a2bfa4d2b81",
+        "type": "status",
+        "z": "8b1ca1acfb108a49",
+        "name": "",
+        "scope": [
+            "ca8f5a2747c94561"
+        ],
+        "x": 120,
+        "y": 80,
+        "wires": [
+            [
+                "bf419cdaf9096b43"
+            ]
+        ]
+    },
+    {
+        "id": "bf419cdaf9096b43",
+        "type": "debug",
+        "z": "8b1ca1acfb108a49",
+        "name": "Status View",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "status",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "c51a2d97f8185a05",
+        "type": "catch",
+        "z": "8b1ca1acfb108a49",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 120,
+        "y": 120,
+        "wires": [
+            [
+                "92ab185b1acb8cc4"
+            ]
+        ]
+    },
+    {
+        "id": "92ab185b1acb8cc4",
+        "type": "debug",
+        "z": "8b1ca1acfb108a49",
+        "name": "All Errors",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "error",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "f4281a1d65055f9a",
+        "type": "link out",
+        "z": "8b1ca1acfb108a49",
+        "name": "TimeStamp",
+        "mode": "link",
+        "links": [
+            "b00949e3111901ed"
+        ],
+        "x": 235,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "88e58c90c4d328e5",
+        "type": "comment",
+        "z": "8b1ca1acfb108a49",
+        "name": "Tag and Status",
+        "info": "Browse tag and monitor system status",
+        "x": 460,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "3a072b73b9fd89ae",
+        "type": "inject",
+        "z": "8b1ca1acfb108a49",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 220,
+        "wires": [
+            [
+                "9b101471f13ab847",
+                "f4281a1d65055f9a"
+            ]
+        ]
+    },
+    {
+        "id": "264f0fc82dd2dd36",
+        "type": "function",
+        "z": "8b1ca1acfb108a49",
+        "name": "function 1",
+        "func": "// Parse the JSON string JSON.parse(msg.payload);\nvar json_obj = msg.payload;\n\n// Access the value of \"DForward\"\nvar d_forward = json_obj.ignitionResult.tags[4];\n\n// Set the output message with the value of \"DForward\" .value\nmsg.payload = d_forward;\n\n// Return the message\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 120,
+        "y": 2560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "49fd9a567d7d8f01",
+        "type": "debug",
+        "z": "8b1ca1acfb108a49",
+        "name": "Ignition Direction Subscription",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "b74aa395c8844bd7",
+        "type": "link in",
+        "z": "8b1ca1acfb108a49",
+        "name": "Direction Timestamp",
+        "links": [],
+        "x": 95,
+        "y": 320,
+        "wires": [
+            [
+                "c855bb5a8514e247"
+            ]
+        ]
+    },
+    {
+        "id": "ca8f5a2747c94561",
+        "type": "function",
+        "z": "8b1ca1acfb108a49",
+        "name": "D Forward",
+        "func": "// Parse the JSON string\nvar json_obj = JSON.parse(msg.payload.ignitionResult.value);\n\n// Access the value of \"DForward\"\nvar D_forward = json_obj.DForward;\n\n// Set the output message with the value of \"DForward\"\nmsg.payload = D_forward;\n\n// Return the message\nreturn msg;\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 500,
+        "wires": [
+            [
+                "cb3f98dc4017aa46"
+            ]
+        ]
+    },
+    {
+        "id": "cb3f98dc4017aa46",
+        "type": "debug",
+        "z": "8b1ca1acfb108a49",
+        "name": "Main Movement",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "0896cb3e8744307c",
+        "type": "function",
+        "z": "8b1ca1acfb108a49",
+        "name": "D Backward",
+        "func": "// Parse the JSON string\nvar json_obj = JSON.parse(msg.payload.ignitionResult.value);\n\n// Access the value of \"DBackward\"\nvar D_backward = json_obj.DBackward;\n\n// Set the output message with the value of \"DBackward\"\nmsg.payload = D_backward;\n\n// Return the message\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 540,
+        "wires": [
+            [
+                "cb3f98dc4017aa46"
+            ]
+        ]
+    },
+    {
+        "id": "fe80d844d3c057a5",
+        "type": "function",
+        "z": "8b1ca1acfb108a49",
+        "name": "D Right",
+        "func": "// Parse the JSON string\nvar json_obj = JSON.parse(msg.payload.ignitionResult.value);\n\n// Access the value of \"DRight\"\nvar D_right = json_obj.DRight;\n\n// Set the output message with the value of \"DRight\"\nmsg.payload = D_right;\n\n// Return the message\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 580,
+        "wires": [
+            [
+                "cb3f98dc4017aa46"
+            ]
+        ]
+    },
+    {
+        "id": "3341d11022114c84",
+        "type": "function",
+        "z": "8b1ca1acfb108a49",
+        "name": "D Left",
+        "func": "// Parse the JSON string\nvar json_obj = JSON.parse(msg.payload.ignitionResult.value);\n\n// Access the value of \"DLeft\"\nvar D_left = json_obj.DLeft;\n\n// Set the output message with the value of \"DLeft\"\nmsg.payload = D_left;\n\n// Return the message\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 620,
+        "wires": [
+            [
+                "cb3f98dc4017aa46"
+            ]
+        ]
+    },
+    {
+        "id": "fd48fcefa4401115",
+        "type": "function",
+        "z": "8b1ca1acfb108a49",
+        "name": "D ForwardRight",
+        "func": "// Parse the JSON string\nvar json_obj = JSON.parse(msg.payload.ignitionResult.value);\n\n// Access the value of \"DForwardRight\"\nvar d_forwardright = json_obj.DForwardRight;\n\n// Set the output message with the value of \"DForwardRight\"\nmsg.payload = d_forwardright;\n\n// Return the message\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 500,
+        "wires": [
+            [
+                "a4139774bd1fead7"
+            ]
+        ]
+    },
+    {
+        "id": "dac0864526b2fd61",
+        "type": "function",
+        "z": "8b1ca1acfb108a49",
+        "name": "D ForwardLeft",
+        "func": "// Parse the JSON string\nvar json_obj = JSON.parse(msg.payload.ignitionResult.value);\n\n// Access the value of \"DForwardLeft\"\nvar d_forwardleft = json_obj.DForwardLeft;\n\n// Set the output message with the value of \"DForwardLeft\"\nmsg.payload = d_forwardleft;\n\n// Return the message\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 540,
+        "wires": [
+            [
+                "a4139774bd1fead7"
+            ]
+        ]
+    },
+    {
+        "id": "86f6460ec975f45c",
+        "type": "function",
+        "z": "8b1ca1acfb108a49",
+        "name": "D BackwardRight",
+        "func": "// Parse the JSON string\nvar json_obj = JSON.parse(msg.payload.ignitionResult.value);\n\n// Access the value of \"DForwardRight\"\nvar d_backwardright = json_obj.DBackwardRight;\n\n// Set the output message with the value of \"DForwardRight\"\nmsg.payload = d_backwardright;\n\n// Return the message\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1030,
+        "y": 580,
+        "wires": [
+            [
+                "a4139774bd1fead7"
+            ]
+        ]
+    },
+    {
+        "id": "f9a34e284dd7101d",
+        "type": "link out",
+        "z": "8b1ca1acfb108a49",
+        "name": "Direction Tags Output",
+        "mode": "link",
+        "links": [
+            "4b958fac4178dab6",
+            "88f7f7d8305ff3cf",
+            "40ac773208caeb88"
+        ],
+        "x": 435,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "88f7f7d8305ff3cf",
+        "type": "link in",
+        "z": "8b1ca1acfb108a49",
+        "name": "Direction Tags Input",
+        "links": [
+            "f9a34e284dd7101d"
+        ],
+        "x": 95,
+        "y": 560,
+        "wires": [
+            [
+                "ca8f5a2747c94561",
+                "0896cb3e8744307c",
+                "fe80d844d3c057a5",
+                "3341d11022114c84"
+            ]
+        ]
+    },
+    {
+        "id": "4b958fac4178dab6",
+        "type": "link in",
+        "z": "8b1ca1acfb108a49",
+        "name": "Direction Tags Input",
+        "links": [
+            "f9a34e284dd7101d"
+        ],
+        "x": 835,
+        "y": 560,
+        "wires": [
+            [
+                "fd48fcefa4401115",
+                "dac0864526b2fd61",
+                "86f6460ec975f45c",
+                "8044e9cd1b728f04"
+            ]
+        ]
+    },
+    {
+        "id": "a4139774bd1fead7",
+        "type": "debug",
+        "z": "8b1ca1acfb108a49",
+        "name": "Auxilary Movement",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1370,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "8044e9cd1b728f04",
+        "type": "function",
+        "z": "8b1ca1acfb108a49",
+        "name": "D BackwardLeft",
+        "func": "// Parse the JSON string\nvar json_obj = JSON.parse(msg.payload.ignitionResult.value);\n\n// Access the value of \"DBackwardLeft\"\nvar d_backwardleft = json_obj.DBackwardLeft;\n\n// Set the output message with the value of \"DBackwardLeft\"\nmsg.payload = d_backwardleft;\n\n// Return the message\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 620,
+        "wires": [
+            [
+                "a4139774bd1fead7"
+            ]
+        ]
+    },
+    {
+        "id": "0a2ccfc2056d26a6",
+        "type": "comment",
+        "z": "8b1ca1acfb108a49",
+        "name": "NOT USED",
+        "info": "Funtion for reading json return from tag browser query ",
+        "x": 110,
+        "y": 2520,
+        "wires": []
+    },
+    {
+        "id": "c855bb5a8514e247",
+        "type": "ignition-tag-read-ws",
+        "z": "8b1ca1acfb108a49",
+        "server": "d7db35ef916ddc59",
+        "wholemsg": "false",
+        "hb": "",
+        "tagPath": "[default]Devices/Direction",
+        "name": "Direction",
+        "x": 340,
+        "y": 320,
+        "wires": [
+            [
+                "49fd9a567d7d8f01",
+                "f9a34e284dd7101d"
+            ]
+        ]
+    },
+    {
+        "id": "9b101471f13ab847",
+        "type": "ignition-tag-browse",
+        "z": "8b1ca1acfb108a49",
+        "server": "d7db35ef916ddc59",
+        "value": "",
+        "valueType": "msg.payload",
+        "tagPath": "[default]Devices/Direction",
+        "name": "All Tags",
+        "x": 340,
+        "y": 220,
+        "wires": [
+            [
+                "fd8024edbc935394",
+                "d72624e6ed3a9fa7"
+            ]
+        ]
+    },
+    {
+        "id": "6c30ca3457eee0fa",
+        "type": "mqtt-check",
+        "z": "8b1ca1acfb108a49",
+        "host": "localhost",
+        "port": "1883",
+        "username": "Capstone",
+        "password": "Zbest1000",
+        "name": "",
+        "x": 240,
+        "y": 2220,
+        "wires": [
+            [
+                "302c49a29ee6d60d"
+            ]
+        ]
+    },
+    {
+        "id": "302c49a29ee6d60d",
+        "type": "debug",
+        "z": "8b1ca1acfb108a49",
+        "name": "MQTT STATUS",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 2220,
+        "wires": []
+    },
+    {
+        "id": "b00949e3111901ed",
+        "type": "link in",
+        "z": "8b1ca1acfb108a49",
+        "name": "link in 1",
+        "links": [
+            "f4281a1d65055f9a"
+        ],
+        "x": 75,
+        "y": 2220,
+        "wires": [
+            [
+                "6c30ca3457eee0fa"
+            ]
+        ]
+    },
+    {
+        "id": "5163decdd0798d39",
+        "type": "debug",
+        "z": "8b1ca1acfb108a49",
+        "name": "BROKER STATUS EVENT",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1360,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "81bb4a5ba68f0697",
+        "type": "debug",
+        "z": "8b1ca1acfb108a49",
+        "name": "MQTT  SUBRIBE",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 1010,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "c209ba930557698a",
+        "type": "debug",
+        "z": "8b1ca1acfb108a49",
+        "name": "BROKER PUBLISH EVENT",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1360,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "f3f1794f5bd1de5b",
+        "type": "mqtt-check",
+        "z": "8b1ca1acfb108a49",
+        "host": "localhost",
+        "port": "1883",
+        "username": "Capstone",
+        "password": "",
+        "name": "",
+        "x": 1020,
+        "y": 700,
+        "wires": [
+            [
+                "74721b4dad5c40f7"
+            ]
+        ]
+    },
+    {
+        "id": "74721b4dad5c40f7",
+        "type": "debug",
+        "z": "8b1ca1acfb108a49",
+        "name": "MQTT  Check",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 1350,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "ae2c780ee4637b6d",
+        "type": "mqtt in",
+        "z": "8b1ca1acfb108a49",
+        "name": "",
+        "topic": "DIRECTION",
+        "qos": "1",
+        "datatype": "json",
+        "broker": "1d85ac6d05fa4e7c",
+        "nl": false,
+        "rap": false,
+        "rh": "2",
+        "inputs": 0,
+        "x": 830,
+        "y": 700,
+        "wires": [
+            [
+                "f3f1794f5bd1de5b",
+                "81bb4a5ba68f0697"
+            ]
+        ]
+    },
+    {
+        "id": "fa702f44d41f09e4",
+        "type": "mqtt out",
+        "z": "8b1ca1acfb108a49",
+        "name": "",
+        "topic": "DIRECTION",
+        "qos": "1",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "application/json",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1d85ac6d05fa4e7c",
+        "x": 590,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "095f643800fd116f",
+        "type": "aedes broker",
+        "z": "8b1ca1acfb108a49",
+        "name": "",
+        "mqtt_port": "1884",
+        "mqtt_ws_bind": "port",
+        "mqtt_ws_port": "",
+        "mqtt_ws_path": "",
+        "cert": "",
+        "key": "",
+        "certname": "",
+        "keyname": "",
+        "dburl": "",
+        "usetls": false,
+        "x": 1050,
+        "y": 120,
+        "wires": [
+            [
+                "5163decdd0798d39"
+            ],
+            [
+                "c209ba930557698a"
+            ]
+        ]
+    },
+    {
+        "id": "5fca48abbd07926f",
+        "type": "comment",
+        "z": "8b1ca1acfb108a49",
+        "name": "mqtt broker node",
+        "info": "Broker: Aedes mqtt Broker\n\n//Client Authentication\nUsername: Capstone\nPassword: Zbest1000\nUrl: Localhost\nPort: 1884\n\n\n\n\n\nAuthor- Bismark Aguocha\n",
+        "x": 1040,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "d72624e6ed3a9fa7",
+        "type": "link out",
+        "z": "8b1ca1acfb108a49",
+        "name": "All Tags",
+        "mode": "link",
+        "links": [
+            "5f3df0f4d14d8b67"
+        ],
+        "x": 445,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "85ba1b94e884fe01",
+        "type": "function",
+        "z": "8b1ca1acfb108a49",
+        "name": "Main Direction",
+        "func": "// Parse the JSON string\nvar json_obj = JSON.parse(msg.payload.ignitionResult.value);\n\n// Access the values of \"DForward\", \"DBackward\", \"DRight\", and \"DLeft\"\nvar D_forward = json_obj.DForward;\nvar D_backward = json_obj.DBackward;\nvar D_right = json_obj.DRight;\nvar D_left = json_obj.DLeft;\n\n// Create a metrics object with the four values\nvar Main_Direction  = {\n    \"name\": \"Main_Movement\",\n    \"DForward\": D_forward,\n    \"DBackward\": D_backward,\n    \"DRight\": D_right,\n    \"DLeft\": D_left\n};\n\n// Set the output message with the metrics object\nmsg.payload = Main_Direction ;\n\n// Return the message\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "40ac773208caeb88",
+        "type": "link in",
+        "z": "8b1ca1acfb108a49",
+        "name": "Direction Tags Input",
+        "links": [
+            "f9a34e284dd7101d"
+        ],
+        "x": 95,
+        "y": 720,
+        "wires": [
+            [
+                "85ba1b94e884fe01",
+                "64db467f4eb3c79f",
+                "6c24a18fc8b94226"
+            ]
+        ]
+    },
+    {
+        "id": "64db467f4eb3c79f",
+        "type": "function",
+        "z": "8b1ca1acfb108a49",
+        "name": "Auxiliary Direction",
+        "func": "// Parse the JSON string\nvar json_obj = JSON.parse(msg.payload.ignitionResult.value);\n\n// Access the values of the auxiliary movements (\"DForwardRight\", \"DForwardLeft\", \"DBackwardRight\", and \"DBackwardLeft\")\nvar D_forwardright = json_obj.DForwardRight;\nvar D_forwardleft = json_obj.DForwardLeft;\nvar D_backwardright = json_obj.DBackwardRight;\nvar D_backwardleft = json_obj.DBackwardLeft;\n\n// Create a metrics object with the auxiliary movement values\nvar Auxiliary_Direction = {\n    \"name\": \"Auxiliary_Movements\",\n    \"DForwardRight\": D_forwardright,\n    \"DForwardLeft\": D_forwardleft,\n    \"DBackwardRight\": D_backwardright,\n    \"DBackwardLeft\": D_backwardleft\n};\n\n// Set the output message with the metrics object\nmsg.payload = Auxiliary_Direction;\n\n// Return the message\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6c24a18fc8b94226",
+        "type": "function",
+        "z": "8b1ca1acfb108a49",
+        "name": "Full Direction",
+        "func": "// Parse the JSON string\nvar json_obj = JSON.parse(msg.payload.ignitionResult.value);\n\n// Access the values of the main movements (\"DForward\", \"DBackward\", \"DRight\", and \"DLeft\")\nvar D_forward = json_obj.DForward;\nvar D_backward = json_obj.DBackward;\nvar D_right = json_obj.DRight;\nvar D_left = json_obj.DLeft;\n\n// Access the values of the auxiliary movements (\"DForwardRight\", \"DForwardLeft\", \"DBackwardRight\", and \"DBackwardLeft\")\nvar D_forwardright = json_obj.DForwardRight;\nvar D_forwardleft = json_obj.DForwardLeft;\nvar D_backwardright = json_obj.DBackwardRight;\nvar D_backwardleft = json_obj.DBackwardLeft;\n\n// Create a metrics array with two objects, one for main movements and one for auxiliary movements\nvar Direction = [{ \"name\": \"Main_Movement\",\n                        \"DForward\": D_forward,\n                        \"DBackward\": D_backward,\n                        \"DRight\": D_right,\n                        \"DLeft\": D_left\n                 },\n                 {  \"name\": \"Auxiliary_Movements\",\n                       \"DForwardRight\": D_forwardright,\n                       \"DForwardLeft\": D_forwardleft, \n                       \"DBackwardRight\": D_backwardright,\n                       \"DBackwardLeft\": D_backwardleft\n                }\n                ];\n\n// Set the output message with the metrics array\nmsg.payload = Direction;\n\n// Return the message\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 700,
+        "wires": [
+            [
+                "fa702f44d41f09e4"
+            ]
+        ]
+    },
+    {
+        "id": "a9f6004cc137c6e5",
+        "type": "comment",
+        "z": "8b1ca1acfb108a49",
+        "name": "Read Me",
+        "info": "This is the Broken down peices of Main Direction Tags.\n\"Main Direction\" Combines all these into a one function. \nwhile \"FULL Direction\" is the full combination of both \"Main Direction\" and \"Auxilary Direction\" . \nthis is left here for future upgrades and for learning purposes.\n\n\n\nAuthor- Bismark Aguocha",
+        "x": 260,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "c10fa52b4178d0cb",
+        "type": "comment",
+        "z": "8b1ca1acfb108a49",
+        "name": "Read Me",
+        "info": "This is the Broken down peices of Auxilary Direction Tags.\n\"Auxilary Direction\" Combines all these into a one function. \nwhile \"FULL Direction\" is the full combination of both \"Main Direction\" and \"Auxilary Direction\" . \nthis is left here for future upgrades and for learning purposes.\n\n\n\nAuthor- Bismark Aguocha",
+        "x": 1020,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "4eacc24f99e3edd8",
+        "type": "mqtt sparkplug in",
+        "z": "98ff32b1de6f8bfa",
+        "name": "",
+        "topic": "test",
+        "qos": "1",
+        "broker": "a7dd8de6be425e1b",
+        "x": 390,
+        "y": 400,
+        "wires": [
+            [
+                "dbc836dda40dcb20"
+            ]
+        ]
+    },
+    {
+        "id": "5f3df0f4d14d8b67",
+        "type": "link in",
+        "z": "98ff32b1de6f8bfa",
+        "name": "mqtt",
+        "links": [
+            "d72624e6ed3a9fa7",
+            "4c719cef566b1c18"
+        ],
+        "x": 685,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "20085b12509f9b30",
+        "type": "mqtt sparkplug out",
+        "z": "98ff32b1de6f8bfa",
+        "name": "",
+        "topic": "test",
+        "qos": "1",
+        "retain": "",
+        "broker": "a7dd8de6be425e1b",
+        "x": 330,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "29429d8b66112469",
+        "type": "mqtt sparkplug device",
+        "z": "98ff32b1de6f8bfa",
+        "name": "",
+        "metrics": {
+            "machine2/temp/speed": {
+                "dataType": "Int32"
+            },
+            "machine1/temp/speed": {
+                "dataType": "Int32"
+            }
+        },
+        "broker": "a7dd8de6be425e1b",
+        "x": 710,
+        "y": 420,
+        "wires": [
+            [
+                "20085b12509f9b30"
+            ]
+        ]
+    },
+    {
+        "id": "c4dc69c0194f3687",
+        "type": "link in",
+        "z": "98ff32b1de6f8bfa",
+        "name": "metrics",
+        "links": [],
+        "x": 545,
+        "y": 420,
+        "wires": [
+            [
+                "29429d8b66112469"
+            ]
+        ]
+    },
+    {
+        "id": "dbc836dda40dcb20",
+        "type": "debug",
+        "z": "98ff32b1de6f8bfa",
+        "name": "MQTT  SUBRIBE",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 530,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "150efb10132f091e",
+        "type": "comment",
+        "z": "98ff32b1de6f8bfa",
+        "name": "READ ME BIZ",
+        "info": "THE SETUP WAS FOR AN MQQT COMMUNICATION BETWEEN THE MOSQUITO BROKER INSTALLED ON YOUR LOCAL COMPUTER. YOU NEED TO DO SO OPTIMIZING ESPECIALLY WITH THE MQQT DEVICE NODE FROM SPARKPLUG THAT DEALS WITH METRICS",
+        "x": 470,
+        "y": 140,
+        "wires": []
+    }
+]
