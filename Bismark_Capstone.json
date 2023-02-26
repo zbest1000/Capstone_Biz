@@ -96,7 +96,7 @@
         "type": "debug",
         "z": "8b1ca1acfb108a49",
         "name": "Ignition Tag Broswer Display",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -161,7 +161,7 @@
         "type": "debug",
         "z": "8b1ca1acfb108a49",
         "name": "All Errors",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -180,7 +180,11 @@
         "name": "TimeStamp",
         "mode": "link",
         "links": [
-            "b00949e3111901ed"
+            "b00949e3111901ed",
+            "b74aa395c8844bd7",
+            "29d05e0a4568384c",
+            "03778e1a236d6eb4",
+            "8dff3f0990fe56ef"
         ],
         "x": 235,
         "y": 180,
@@ -247,7 +251,7 @@
         "id": "49fd9a567d7d8f01",
         "type": "debug",
         "z": "8b1ca1acfb108a49",
-        "name": "Ignition Direction Subscription",
+        "name": "Ignition Direction Debug",
         "active": false,
         "tosidebar": true,
         "console": false,
@@ -256,7 +260,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 650,
+        "x": 630,
         "y": 320,
         "wires": []
     },
@@ -265,7 +269,9 @@
         "type": "link in",
         "z": "8b1ca1acfb108a49",
         "name": "Direction Timestamp",
-        "links": [],
+        "links": [
+            "f4281a1d65055f9a"
+        ],
         "x": 95,
         "y": 320,
         "wires": [
@@ -286,7 +292,7 @@
         "finalize": "",
         "libs": [],
         "x": 270,
-        "y": 500,
+        "y": 940,
         "wires": [
             [
                 "cb3f98dc4017aa46"
@@ -307,7 +313,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 600,
-        "y": 560,
+        "y": 1000,
         "wires": []
     },
     {
@@ -322,7 +328,7 @@
         "finalize": "",
         "libs": [],
         "x": 270,
-        "y": 540,
+        "y": 980,
         "wires": [
             [
                 "cb3f98dc4017aa46"
@@ -341,7 +347,7 @@
         "finalize": "",
         "libs": [],
         "x": 260,
-        "y": 580,
+        "y": 1020,
         "wires": [
             [
                 "cb3f98dc4017aa46"
@@ -360,7 +366,7 @@
         "finalize": "",
         "libs": [],
         "x": 250,
-        "y": 620,
+        "y": 1060,
         "wires": [
             [
                 "cb3f98dc4017aa46"
@@ -379,7 +385,7 @@
         "finalize": "",
         "libs": [],
         "x": 1020,
-        "y": 500,
+        "y": 940,
         "wires": [
             [
                 "a4139774bd1fead7"
@@ -398,7 +404,7 @@
         "finalize": "",
         "libs": [],
         "x": 1020,
-        "y": 540,
+        "y": 980,
         "wires": [
             [
                 "a4139774bd1fead7"
@@ -417,7 +423,7 @@
         "finalize": "",
         "libs": [],
         "x": 1030,
-        "y": 580,
+        "y": 1020,
         "wires": [
             [
                 "a4139774bd1fead7"
@@ -445,10 +451,12 @@
         "z": "8b1ca1acfb108a49",
         "name": "Direction Tags Input",
         "links": [
-            "f9a34e284dd7101d"
+            "f9a34e284dd7101d",
+            "ef7d17920973257f",
+            "2eccb41789e2e4b1"
         ],
         "x": 95,
-        "y": 560,
+        "y": 1000,
         "wires": [
             [
                 "ca8f5a2747c94561",
@@ -464,10 +472,12 @@
         "z": "8b1ca1acfb108a49",
         "name": "Direction Tags Input",
         "links": [
-            "f9a34e284dd7101d"
+            "f9a34e284dd7101d",
+            "ef7d17920973257f",
+            "2eccb41789e2e4b1"
         ],
         "x": 835,
-        "y": 560,
+        "y": 1000,
         "wires": [
             [
                 "fd48fcefa4401115",
@@ -491,7 +501,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1370,
-        "y": 560,
+        "y": 1000,
         "wires": []
     },
     {
@@ -506,7 +516,7 @@
         "finalize": "",
         "libs": [],
         "x": 1020,
-        "y": 620,
+        "y": 1060,
         "wires": [
             [
                 "a4139774bd1fead7"
@@ -548,7 +558,7 @@
         "server": "d7db35ef916ddc59",
         "value": "",
         "valueType": "msg.payload",
-        "tagPath": "[default]Devices/Direction",
+        "tagPath": "[default]Devices",
         "name": "All Tags",
         "x": 340,
         "y": 220,
@@ -614,7 +624,7 @@
         "type": "debug",
         "z": "8b1ca1acfb108a49",
         "name": "BROKER STATUS EVENT",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -640,7 +650,7 @@
         "statusVal": "payload",
         "statusType": "auto",
         "x": 1010,
-        "y": 840,
+        "y": 1280,
         "wires": []
     },
     {
@@ -648,7 +658,7 @@
         "type": "debug",
         "z": "8b1ca1acfb108a49",
         "name": "BROKER PUBLISH EVENT",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -670,7 +680,7 @@
         "password": "",
         "name": "",
         "x": 1020,
-        "y": 700,
+        "y": 1140,
         "wires": [
             [
                 "74721b4dad5c40f7"
@@ -691,7 +701,7 @@
         "statusVal": "payload",
         "statusType": "auto",
         "x": 1350,
-        "y": 700,
+        "y": 1140,
         "wires": []
     },
     {
@@ -699,7 +709,7 @@
         "type": "mqtt in",
         "z": "8b1ca1acfb108a49",
         "name": "",
-        "topic": "DIRECTION",
+        "topic": "Direction",
         "qos": "1",
         "datatype": "json",
         "broker": "1d85ac6d05fa4e7c",
@@ -707,8 +717,8 @@
         "rap": false,
         "rh": "2",
         "inputs": 0,
-        "x": 830,
-        "y": 700,
+        "x": 820,
+        "y": 1140,
         "wires": [
             [
                 "f3f1794f5bd1de5b",
@@ -721,7 +731,7 @@
         "type": "mqtt out",
         "z": "8b1ca1acfb108a49",
         "name": "",
-        "topic": "DIRECTION",
+        "topic": "Direction",
         "qos": "1",
         "retain": "false",
         "respTopic": "",
@@ -730,8 +740,8 @@
         "correl": "",
         "expiry": "",
         "broker": "1d85ac6d05fa4e7c",
-        "x": 590,
-        "y": 700,
+        "x": 580,
+        "y": 1140,
         "wires": []
     },
     {
@@ -795,7 +805,7 @@
         "finalize": "",
         "libs": [],
         "x": 280,
-        "y": 740,
+        "y": 1180,
         "wires": [
             []
         ]
@@ -806,10 +816,12 @@
         "z": "8b1ca1acfb108a49",
         "name": "Direction Tags Input",
         "links": [
-            "f9a34e284dd7101d"
+            "f9a34e284dd7101d",
+            "ef7d17920973257f",
+            "2eccb41789e2e4b1"
         ],
         "x": 95,
-        "y": 720,
+        "y": 1160,
         "wires": [
             [
                 "85ba1b94e884fe01",
@@ -830,7 +842,7 @@
         "finalize": "",
         "libs": [],
         "x": 290,
-        "y": 780,
+        "y": 1220,
         "wires": [
             []
         ]
@@ -847,7 +859,7 @@
         "finalize": "",
         "libs": [],
         "x": 270,
-        "y": 700,
+        "y": 1140,
         "wires": [
             [
                 "fa702f44d41f09e4"
@@ -861,7 +873,7 @@
         "name": "Read Me",
         "info": "This is the Broken down peices of Main Direction Tags.\n\"Main Direction\" Combines all these into a one function. \nwhile \"FULL Direction\" is the full combination of both \"Main Direction\" and \"Auxilary Direction\" . \nthis is left here for future upgrades and for learning purposes.\n\n\n\nAuthor- Bismark Aguocha",
         "x": 260,
-        "y": 460,
+        "y": 900,
         "wires": []
     },
     {
@@ -871,7 +883,322 @@
         "name": "Read Me",
         "info": "This is the Broken down peices of Auxilary Direction Tags.\n\"Auxilary Direction\" Combines all these into a one function. \nwhile \"FULL Direction\" is the full combination of both \"Main Direction\" and \"Auxilary Direction\" . \nthis is left here for future upgrades and for learning purposes.\n\n\n\nAuthor- Bismark Aguocha",
         "x": 1020,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "8d7f2c53fc10a56d",
+        "type": "inject",
+        "z": "8b1ca1acfb108a49",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1030,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "85e77129a7810b8a",
+        "type": "mqtt out",
+        "z": "8b1ca1acfb108a49",
+        "name": "",
+        "topic": "keepalive",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "application/json",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1d85ac6d05fa4e7c",
+        "x": 1240,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "4fc98f576fb0d57c",
+        "type": "debug",
+        "z": "8b1ca1acfb108a49",
+        "name": "Ignition Control Debug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
         "y": 440,
+        "wires": []
+    },
+    {
+        "id": "29d05e0a4568384c",
+        "type": "link in",
+        "z": "8b1ca1acfb108a49",
+        "name": "Light control Timestamp",
+        "links": [
+            "f4281a1d65055f9a"
+        ],
+        "x": 95,
+        "y": 440,
+        "wires": [
+            [
+                "16160add12e02be4"
+            ]
+        ]
+    },
+    {
+        "id": "16160add12e02be4",
+        "type": "ignition-tag-read-ws",
+        "z": "8b1ca1acfb108a49",
+        "server": "d7db35ef916ddc59",
+        "wholemsg": "false",
+        "hb": "",
+        "tagPath": "[default]Devices/Light control",
+        "name": "Light Control",
+        "x": 350,
+        "y": 440,
+        "wires": [
+            [
+                "4fc98f576fb0d57c",
+                "9307b8e36eb1d7eb"
+            ]
+        ]
+    },
+    {
+        "id": "9307b8e36eb1d7eb",
+        "type": "link out",
+        "z": "8b1ca1acfb108a49",
+        "name": "Light Tags Output",
+        "mode": "link",
+        "links": [],
+        "x": 435,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "dabef90c583595b4",
+        "type": "ignition-tag-read-ws",
+        "z": "8b1ca1acfb108a49",
+        "server": "d7db35ef916ddc59",
+        "wholemsg": "false",
+        "hb": "",
+        "tagPath": "[default]Devices/MODE",
+        "name": "MODE",
+        "x": 330,
+        "y": 580,
+        "wires": [
+            [
+                "eabdd7ac605fdbb2",
+                "3df41ac1178db35b"
+            ]
+        ]
+    },
+    {
+        "id": "3df41ac1178db35b",
+        "type": "link out",
+        "z": "8b1ca1acfb108a49",
+        "name": "Mode Tags Output",
+        "mode": "link",
+        "links": [],
+        "x": 435,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "eabdd7ac605fdbb2",
+        "type": "debug",
+        "z": "8b1ca1acfb108a49",
+        "name": "Ignition MODE Debug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "03778e1a236d6eb4",
+        "type": "link in",
+        "z": "8b1ca1acfb108a49",
+        "name": "Mode Timestamp",
+        "links": [
+            "f4281a1d65055f9a"
+        ],
+        "x": 95,
+        "y": 580,
+        "wires": [
+            [
+                "dabef90c583595b4"
+            ]
+        ]
+    },
+    {
+        "id": "77f1787536399c86",
+        "type": "ignition-tag-read-ws",
+        "z": "8b1ca1acfb108a49",
+        "server": "d7db35ef916ddc59",
+        "wholemsg": "false",
+        "hb": "",
+        "tagPath": "[default]Devices/Speed",
+        "name": "Speed",
+        "x": 1050,
+        "y": 320,
+        "wires": [
+            [
+                "eea3263bd72c45a2",
+                "e9788eb1460f40cf"
+            ]
+        ]
+    },
+    {
+        "id": "e9788eb1460f40cf",
+        "type": "link out",
+        "z": "8b1ca1acfb108a49",
+        "name": "Speed Tags Output",
+        "mode": "link",
+        "links": [
+            "ed474cb45483219d"
+        ],
+        "x": 1155,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "eea3263bd72c45a2",
+        "type": "debug",
+        "z": "8b1ca1acfb108a49",
+        "name": "Ignition Direction Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1350,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "8dff3f0990fe56ef",
+        "type": "link in",
+        "z": "8b1ca1acfb108a49",
+        "name": "Direction Timestamp",
+        "links": [
+            "f4281a1d65055f9a"
+        ],
+        "x": 815,
+        "y": 320,
+        "wires": [
+            [
+                "77f1787536399c86"
+            ]
+        ]
+    },
+    {
+        "id": "78f642883b4edf02",
+        "type": "ignition-tag-write",
+        "z": "8b1ca1acfb108a49",
+        "server": "d7db35ef916ddc59",
+        "value": "",
+        "valueType": "msg.payload",
+        "tagPath": "[default]Devices/Speed",
+        "tagValue": "",
+        "name": "Speed Actual",
+        "x": 1090,
+        "y": 440,
+        "wires": [
+            [
+                "1583e92cd2e91ca1"
+            ]
+        ]
+    },
+    {
+        "id": "0c1349520c914070",
+        "type": "complete",
+        "z": "8b1ca1acfb108a49",
+        "name": "Speed write",
+        "scope": [
+            "78f642883b4edf02"
+        ],
+        "uncaught": false,
+        "x": 1270,
+        "y": 440,
+        "wires": [
+            [
+                "1583e92cd2e91ca1"
+            ]
+        ]
+    },
+    {
+        "id": "ed474cb45483219d",
+        "type": "link in",
+        "z": "8b1ca1acfb108a49",
+        "name": "Speed Timestamp",
+        "links": [
+            "e9788eb1460f40cf"
+        ],
+        "x": 815,
+        "y": 440,
+        "wires": [
+            [
+                "51313d850c050da8"
+            ]
+        ]
+    },
+    {
+        "id": "51313d850c050da8",
+        "type": "function",
+        "z": "8b1ca1acfb108a49",
+        "name": "function 2",
+        "func": "const speed = JSON.parse(msg.payload.ignitionResult.tags[3].value) + 10;\n\nreturn {\n  tagPath: \"[default]Devices/Speed\",\n  tagValue: speed\n};\n\n// const speed = JSON.parse(msg.payload.ignitionResult.tags[3].value) + 2;\n\n// // msg.payload.tagPath = \"[default]Devices/Speed\";\n// // msg.payload.tagValue = speed;\n\n// return msg\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 440,
+        "wires": [
+            [
+                "78f642883b4edf02"
+            ]
+        ]
+    },
+    {
+        "id": "1583e92cd2e91ca1",
+        "type": "debug",
+        "z": "8b1ca1acfb108a49",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1400,
+        "y": 540,
         "wires": []
     },
     {
