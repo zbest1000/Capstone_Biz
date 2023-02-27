@@ -92,6 +92,121 @@
         "sessionExpiry": ""
     },
     {
+        "id": "6f0595d02e77b0a6",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "df8571cc55482ce4",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "256d4c1dbcfbf41a",
+        "type": "ui_group",
+        "name": "MAIN",
+        "tab": "6f0595d02e77b0a6",
+        "order": 1,
+        "disp": true,
+        "width": "27",
+        "collapse": false
+    },
+    {
         "id": "fd8024edbc935394",
         "type": "debug",
         "z": "8b1ca1acfb108a49",
@@ -710,7 +825,7 @@
         "z": "8b1ca1acfb108a49",
         "name": "",
         "topic": "Direction",
-        "qos": "1",
+        "qos": "2",
         "datatype": "json",
         "broker": "1d85ac6d05fa4e7c",
         "nl": false,
@@ -732,7 +847,7 @@
         "z": "8b1ca1acfb108a49",
         "name": "",
         "topic": "Direction",
-        "qos": "1",
+        "qos": "2",
         "retain": "false",
         "respTopic": "",
         "contentType": "application/json",
@@ -1125,7 +1240,7 @@
         "tagPath": "[default]Devices/Speed",
         "tagValue": "",
         "name": "Speed Actual",
-        "x": 1090,
+        "x": 1310,
         "y": 440,
         "wires": [
             [
@@ -1142,27 +1257,11 @@
             "78f642883b4edf02"
         ],
         "uncaught": false,
-        "x": 1270,
-        "y": 440,
+        "x": 1130,
+        "y": 580,
         "wires": [
             [
                 "1583e92cd2e91ca1"
-            ]
-        ]
-    },
-    {
-        "id": "ed474cb45483219d",
-        "type": "link in",
-        "z": "8b1ca1acfb108a49",
-        "name": "Speed Timestamp",
-        "links": [
-            "e9788eb1460f40cf"
-        ],
-        "x": 815,
-        "y": 440,
-        "wires": [
-            [
-                "51313d850c050da8"
             ]
         ]
     },
@@ -1171,17 +1270,18 @@
         "type": "function",
         "z": "8b1ca1acfb108a49",
         "name": "function 2",
-        "func": "const speed = JSON.parse(msg.payload.ignitionResult.tags[3].value) + 10;\n\nreturn {\n  tagPath: \"[default]Devices/Speed\",\n  tagValue: speed\n};\n\n// const speed = JSON.parse(msg.payload.ignitionResult.tags[3].value) + 2;\n\n// // msg.payload.tagPath = \"[default]Devices/Speed\";\n// // msg.payload.tagValue = speed;\n\n// return msg\n",
+        "func": "var speed = msg.payload;\nvar tagPath = \"[default]Devices/Speed\"; //  the appropriate tag path\nmsg.payload = {\n    tagPath: tagPath,\n    tagValue: speed\n};\n\nreturn msg;\n\n\n\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 920,
+        "x": 1100,
         "y": 440,
         "wires": [
             [
-                "78f642883b4edf02"
+                "78f642883b4edf02",
+                "5af09c257a51b59c"
             ]
         ]
     },
@@ -1197,8 +1297,89 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1400,
-        "y": 540,
+        "x": 1140,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "092e078c5df8e124",
+        "type": "mqtt in",
+        "z": "8b1ca1acfb108a49",
+        "name": "SPEED",
+        "topic": "Speed",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "1d85ac6d05fa4e7c",
+        "nl": false,
+        "rap": false,
+        "rh": "2",
+        "inputs": 0,
+        "x": 850,
+        "y": 440,
+        "wires": [
+            [
+                "51313d850c050da8"
+            ]
+        ]
+    },
+    {
+        "id": "50e18903413ced2c",
+        "type": "ui_slider",
+        "z": "8b1ca1acfb108a49",
+        "name": "slider",
+        "label": "SPEED",
+        "tooltip": "speed",
+        "group": "256d4c1dbcfbf41a",
+        "order": 0,
+        "width": "0",
+        "height": "0",
+        "passthru": true,
+        "outs": "all",
+        "topic": "payload",
+        "topicType": "msg",
+        "min": 0,
+        "max": "100",
+        "step": 1,
+        "x": 830,
+        "y": 560,
+        "wires": [
+            [
+                "2a4b3daead2cd27e"
+            ]
+        ]
+    },
+    {
+        "id": "2a4b3daead2cd27e",
+        "type": "mqtt out",
+        "z": "8b1ca1acfb108a49",
+        "name": "",
+        "topic": "Speed",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "application/json",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1d85ac6d05fa4e7c",
+        "x": 950,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "5af09c257a51b59c",
+        "type": "debug",
+        "z": "8b1ca1acfb108a49",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1260,
+        "y": 520,
         "wires": []
     },
     {
