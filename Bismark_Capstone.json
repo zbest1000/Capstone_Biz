@@ -67,7 +67,7 @@
         "name": "AEDES MQTT node connection PAR",
         "broker": "localhost",
         "port": "1884",
-        "clientid": "ESP32_MASTER_mqtt",
+        "clientid": "Node_Red_mqtt",
         "autoConnect": true,
         "usetls": false,
         "protocolVersion": "4",
@@ -207,6 +207,25 @@
         "collapse": false
     },
     {
+        "id": "3b2bccbdd97d11f2",
+        "type": "ui_spacer",
+        "z": "8b1ca1acfb108a49",
+        "name": "spacer",
+        "group": "256d4c1dbcfbf41a",
+        "order": 1,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "6b8856bce6742156",
+        "type": "ui_link",
+        "name": "Link 2",
+        "link": "www.google.com",
+        "icon": "open_in_browser",
+        "target": "iframe",
+        "order": 2
+    },
+    {
         "id": "fd8024edbc935394",
         "type": "debug",
         "z": "8b1ca1acfb108a49",
@@ -244,7 +263,7 @@
         "type": "debug",
         "z": "8b1ca1acfb108a49",
         "name": "Status View",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -276,7 +295,7 @@
         "type": "debug",
         "z": "8b1ca1acfb108a49",
         "name": "All Errors",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -299,7 +318,8 @@
             "b74aa395c8844bd7",
             "29d05e0a4568384c",
             "03778e1a236d6eb4",
-            "8dff3f0990fe56ef"
+            "8dff3f0990fe56ef",
+            "b85a68428fe5dcf5"
         ],
         "x": 235,
         "y": 180,
@@ -739,7 +759,7 @@
         "type": "debug",
         "z": "8b1ca1acfb108a49",
         "name": "BROKER STATUS EVENT",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -752,28 +772,11 @@
         "wires": []
     },
     {
-        "id": "81bb4a5ba68f0697",
-        "type": "debug",
-        "z": "8b1ca1acfb108a49",
-        "name": "MQTT  SUBRIBE",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 1010,
-        "y": 1280,
-        "wires": []
-    },
-    {
         "id": "c209ba930557698a",
         "type": "debug",
         "z": "8b1ca1acfb108a49",
         "name": "BROKER PUBLISH EVENT",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -836,8 +839,7 @@
         "y": 1140,
         "wires": [
             [
-                "f3f1794f5bd1de5b",
-                "81bb4a5ba68f0697"
+                "f3f1794f5bd1de5b"
             ]
         ]
     },
@@ -865,7 +867,7 @@
         "z": "8b1ca1acfb108a49",
         "name": "",
         "mqtt_port": "1884",
-        "mqtt_ws_bind": "port",
+        "mqtt_ws_bind": "path",
         "mqtt_ws_port": "",
         "mqtt_ws_path": "",
         "cert": "",
@@ -936,7 +938,7 @@
             "2eccb41789e2e4b1"
         ],
         "x": 95,
-        "y": 1160,
+        "y": 1180,
         "wires": [
             [
                 "85ba1b94e884fe01",
@@ -967,7 +969,7 @@
         "type": "function",
         "z": "8b1ca1acfb108a49",
         "name": "Full Direction",
-        "func": "// Parse the JSON string\nvar json_obj = JSON.parse(msg.payload.ignitionResult.value);\n\n// Access the values of the main movements (\"DForward\", \"DBackward\", \"DRight\", and \"DLeft\")\nvar D_forward = json_obj.DForward;\nvar D_backward = json_obj.DBackward;\nvar D_right = json_obj.DRight;\nvar D_left = json_obj.DLeft;\n\n// Access the values of the auxiliary movements (\"DForwardRight\", \"DForwardLeft\", \"DBackwardRight\", and \"DBackwardLeft\")\nvar D_forwardright = json_obj.DForwardRight;\nvar D_forwardleft = json_obj.DForwardLeft;\nvar D_backwardright = json_obj.DBackwardRight;\nvar D_backwardleft = json_obj.DBackwardLeft;\n\n// Create a metrics array with two objects, one for main movements and one for auxiliary movements\nvar Direction = [{ \"name\": \"Main_Movement\",\n                        \"DForward\": D_forward,\n                        \"DBackward\": D_backward,\n                        \"DRight\": D_right,\n                        \"DLeft\": D_left\n                 },\n                 {  \"name\": \"Auxiliary_Movements\",\n                       \"DForwardRight\": D_forwardright,\n                       \"DForwardLeft\": D_forwardleft, \n                       \"DBackwardRight\": D_backwardright,\n                       \"DBackwardLeft\": D_backwardleft\n                }\n                ];\n\n// Set the output message with the metrics array\nmsg.payload = Direction;\n\n// Return the message\nreturn msg;\n\n",
+        "func": "// Parse the JSON string\nvar json_obj = JSON.parse(msg.payload.ignitionResult.value);\n\n// Access the values of the main movements (\"DForward\", \"DBackward\", \"DRight\", and \"DLeft\")\nvar D_forward = json_obj.DForward;\nvar D_backward = json_obj.DBackward;\nvar D_right = json_obj.DRight;\nvar D_left = json_obj.DLeft;\n\n// Access the values of the auxiliary movements (\"DForwardRight\", \"DForwardLeft\", \"DBackwardRight\", and \"DBackwardLeft\")\nvar D_forwardright = json_obj.DForwardRight;\nvar D_forwardleft = json_obj.DForwardLeft;\nvar D_backwardright = json_obj.DBackwardRight;\nvar D_backwardleft = json_obj.DBackwardLeft;\n\nvar D_RotateLeft = json_obj.DRotateLeft;\nvar D_RotateRight = json_obj.DRotateRight;\n\n\n// Create a metrics array with two objects, one for main movements and one for auxiliary movements\nvar Direction = [{ \"name\": \"Main_Movement\",\n                        \"DForward\": D_forward,\n                        \"DBackward\": D_backward,\n                        \"DRight\": D_right,\n                        \"DLeft\": D_left\n                 },\n                 {  \"name\": \"Auxiliary_Movements\",\n                       \"DForwardRight\": D_forwardright,\n                       \"DForwardLeft\": D_forwardleft, \n                       \"DBackwardRight\": D_backwardright,\n                       \"DBackwardLeft\": D_backwardleft,\n                       \"DRotateRight\": D_RotateRight,\n                       \"DRotateLeft\": D_RotateLeft\n                }\n                ];\n\n// Set the output message with the metrics array\nmsg.payload = Direction;\n\n// Return the message\nreturn msg;\n\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1014,14 +1016,16 @@
         "repeat": "10",
         "crontab": "",
         "once": true,
-        "onceDelay": "1",
+        "onceDelay": "5",
         "topic": "",
         "payload": "",
         "payloadType": "date",
         "x": 1030,
         "y": 200,
         "wires": [
-            []
+            [
+                "85e77129a7810b8a"
+            ]
         ]
     },
     {
@@ -1128,7 +1132,9 @@
         "z": "8b1ca1acfb108a49",
         "name": "Mode Tags Output",
         "mode": "link",
-        "links": [],
+        "links": [
+            "b3cc8c77effb01fb"
+        ],
         "x": 435,
         "y": 520,
         "wires": []
@@ -1138,7 +1144,7 @@
         "type": "debug",
         "z": "8b1ca1acfb108a49",
         "name": "Ignition MODE Debug",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1330,7 +1336,7 @@
         "label": "SPEED",
         "tooltip": "speed",
         "group": "256d4c1dbcfbf41a",
-        "order": 0,
+        "order": 2,
         "width": "0",
         "height": "0",
         "passthru": true,
@@ -1383,6 +1389,316 @@
         "wires": []
     },
     {
+        "id": "b68dcc65524f0e1b",
+        "type": "ignition-tag-read-ws",
+        "z": "8b1ca1acfb108a49",
+        "server": "d7db35ef916ddc59",
+        "wholemsg": "false",
+        "hb": "",
+        "tagPath": "[default]Devices/Speed_SP",
+        "name": "Speed_SP",
+        "x": 350,
+        "y": 700,
+        "wires": [
+            [
+                "d8510d266a5de9b9",
+                "f983035f386e0947"
+            ]
+        ]
+    },
+    {
+        "id": "f983035f386e0947",
+        "type": "link out",
+        "z": "8b1ca1acfb108a49",
+        "name": "Speed_SP Tags Output",
+        "mode": "link",
+        "links": [
+            "80cf748f176b4f98"
+        ],
+        "x": 455,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "d8510d266a5de9b9",
+        "type": "debug",
+        "z": "8b1ca1acfb108a49",
+        "name": "Ignition Speed_SP Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "b85a68428fe5dcf5",
+        "type": "link in",
+        "z": "8b1ca1acfb108a49",
+        "name": "Mode Timestamp",
+        "links": [
+            "f4281a1d65055f9a"
+        ],
+        "x": 105,
+        "y": 700,
+        "wires": [
+            [
+                "b68dcc65524f0e1b"
+            ]
+        ]
+    },
+    {
+        "id": "c8c7835af4f2a81a",
+        "type": "function",
+        "z": "8b1ca1acfb108a49",
+        "name": "SPEED SP",
+        "func": "\n// Access the values \nvar Speed_SP = JSON.parse(msg.payload.ignitionResult.value);\n\n// Set the output message with the value of \"Speed SP\"\nmsg.payload = Speed_SP;\nmsg.topic = \"Speed_SP\";\n// Return the message\nreturn msg;\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 210,
+        "y": 1320,
+        "wires": [
+            [
+                "42aa78b4f0b85ec5"
+            ]
+        ]
+    },
+    {
+        "id": "80cf748f176b4f98",
+        "type": "link in",
+        "z": "8b1ca1acfb108a49",
+        "name": "Speed SP",
+        "links": [
+            "f983035f386e0947"
+        ],
+        "x": 55,
+        "y": 1320,
+        "wires": [
+            [
+                "c8c7835af4f2a81a"
+            ]
+        ]
+    },
+    {
+        "id": "d3eed6f1f07c54ed",
+        "type": "mqtt out",
+        "z": "8b1ca1acfb108a49",
+        "name": "",
+        "topic": "Instructions",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "application/json",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1d85ac6d05fa4e7c",
+        "x": 710,
+        "y": 1360,
+        "wires": []
+    },
+    {
+        "id": "20c32be490dfacd9",
+        "type": "mqtt-check",
+        "z": "8b1ca1acfb108a49",
+        "host": "localhost",
+        "port": "1883",
+        "username": "Capstone",
+        "password": "",
+        "name": "",
+        "x": 1020,
+        "y": 1260,
+        "wires": [
+            [
+                "793b8b2056b02d50"
+            ]
+        ]
+    },
+    {
+        "id": "793b8b2056b02d50",
+        "type": "debug",
+        "z": "8b1ca1acfb108a49",
+        "name": "Instruction  Check",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 1370,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "06245b981af35036",
+        "type": "mqtt in",
+        "z": "8b1ca1acfb108a49",
+        "name": "",
+        "topic": "Instructions",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "1d85ac6d05fa4e7c",
+        "nl": false,
+        "rap": false,
+        "rh": "2",
+        "inputs": 0,
+        "x": 830,
+        "y": 1260,
+        "wires": [
+            [
+                "20c32be490dfacd9"
+            ]
+        ]
+    },
+    {
+        "id": "42aa78b4f0b85ec5",
+        "type": "join",
+        "z": "8b1ca1acfb108a49",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "",
+        "propertyType": "full",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": true,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 390,
+        "y": 1340,
+        "wires": [
+            [
+                "1167d3c91d6a626c"
+            ]
+        ]
+    },
+    {
+        "id": "274d0fa1aeb77926",
+        "type": "function",
+        "z": "8b1ca1acfb108a49",
+        "name": "MODE",
+        "func": "\n// Access the values \nvar MODE = JSON.parse(msg.payload.ignitionResult.value);\n\n// Set the output message with the value of \"MODE\"\nmsg.payload = MODE;\nmsg.topic = \"MODE\";\n// Return the message\nreturn msg;\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 190,
+        "y": 1380,
+        "wires": [
+            [
+                "42aa78b4f0b85ec5"
+            ]
+        ]
+    },
+    {
+        "id": "b3cc8c77effb01fb",
+        "type": "link in",
+        "z": "8b1ca1acfb108a49",
+        "name": "MODE Input",
+        "links": [
+            "3df41ac1178db35b"
+        ],
+        "x": 55,
+        "y": 1380,
+        "wires": [
+            [
+                "274d0fa1aeb77926"
+            ]
+        ]
+    },
+    {
+        "id": "1167d3c91d6a626c",
+        "type": "function",
+        "z": "8b1ca1acfb108a49",
+        "name": "instructions",
+        "func": "\n// Access the values \nvar Mode = (msg.payload[\"MODE\"].payload);\nvar Speed_SP = (msg.payload[\"Speed_SP\"].payload);\n\n//metrics object\nvar Instruction = {\n    \"name\": \"Instructions\",\n    \"Mode\": Mode,\n    \"MoveSpeed\": Speed_SP\n    };\n// Set the output message with the value of \"MODE\"\nmsg.payload = Instruction;\n// Return the message\nreturn msg;\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 1360,
+        "wires": [
+            [
+                "d3eed6f1f07c54ed"
+            ]
+        ]
+    },
+    {
+        "id": "9f2c2a2c39a62e9d",
+        "type": "debug",
+        "z": "8b1ca1acfb108a49",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "ea16a3b7f66a6d9b",
+        "type": "mqtt in",
+        "z": "8b1ca1acfb108a49",
+        "name": "",
+        "topic": "Obstacle",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "1d85ac6d05fa4e7c",
+        "nl": false,
+        "rap": false,
+        "rh": "2",
+        "inputs": 0,
+        "x": 840,
+        "y": 1500,
+        "wires": [
+            [
+                "9f2c2a2c39a62e9d"
+            ]
+        ]
+    },
+    {
+        "id": "9a0104f5889d5acf",
+        "type": "mqtt in",
+        "z": "8b1ca1acfb108a49",
+        "name": "",
+        "topic": "Obstacle",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "1d85ac6d05fa4e7c",
+        "nl": false,
+        "rap": false,
+        "rh": "2",
+        "inputs": 0,
+        "x": 840,
+        "y": 1540,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "4eacc24f99e3edd8",
         "type": "mqtt sparkplug in",
         "z": "98ff32b1de6f8bfa",
@@ -1433,10 +1749,12 @@
         "name": "",
         "metrics": {
             "machine2/temp/speed": {
-                "dataType": "Int32"
+                "dataType": "Int32",
+                "name": "machine2/temp/speed"
             },
             "machine1/temp/speed": {
-                "dataType": "Int32"
+                "dataType": "Int32",
+                "name": "machine1/temp/speed"
             }
         },
         "broker": "a7dd8de6be425e1b",
