@@ -16,16 +16,6 @@
         "env": []
     },
     {
-        "id": "d7db35ef916ddc59",
-        "type": "ignition-server",
-        "hostname": "localhost",
-        "port": "8088",
-        "ssl": false,
-        "tls": "",
-        "defaultTagProvider": "",
-        "name": "Ignition Server"
-    },
-    {
         "id": "a7dd8de6be425e1b",
         "type": "mqtt-sparkplug-broker",
         "name": "Local MQTT test",
@@ -224,6 +214,16 @@
         "icon": "open_in_browser",
         "target": "iframe",
         "order": 2
+    },
+    {
+        "id": "d7db35ef916ddc59",
+        "type": "ignition-server",
+        "hostname": "localhost",
+        "port": "8088",
+        "ssl": false,
+        "tls": "",
+        "defaultTagProvider": "",
+        "name": "Ignition Server"
     },
     {
         "id": "fd8024edbc935394",
@@ -668,42 +668,6 @@
         "wires": []
     },
     {
-        "id": "c855bb5a8514e247",
-        "type": "ignition-tag-read-ws",
-        "z": "8b1ca1acfb108a49",
-        "server": "d7db35ef916ddc59",
-        "wholemsg": "false",
-        "hb": "",
-        "tagPath": "[default]Devices/Direction",
-        "name": "Direction",
-        "x": 340,
-        "y": 320,
-        "wires": [
-            [
-                "49fd9a567d7d8f01",
-                "f9a34e284dd7101d"
-            ]
-        ]
-    },
-    {
-        "id": "9b101471f13ab847",
-        "type": "ignition-tag-browse",
-        "z": "8b1ca1acfb108a49",
-        "server": "d7db35ef916ddc59",
-        "value": "",
-        "valueType": "msg.payload",
-        "tagPath": "[default]Devices",
-        "name": "All Tags",
-        "x": 340,
-        "y": 220,
-        "wires": [
-            [
-                "fd8024edbc935394",
-                "d72624e6ed3a9fa7"
-            ]
-        ]
-    },
-    {
         "id": "5163decdd0798d39",
         "type": "debug",
         "z": "8b1ca1acfb108a49",
@@ -1029,24 +993,6 @@
         ]
     },
     {
-        "id": "16160add12e02be4",
-        "type": "ignition-tag-read-ws",
-        "z": "8b1ca1acfb108a49",
-        "server": "d7db35ef916ddc59",
-        "wholemsg": "false",
-        "hb": "",
-        "tagPath": "[default]Devices/Light control",
-        "name": "Light Control",
-        "x": 350,
-        "y": 440,
-        "wires": [
-            [
-                "4fc98f576fb0d57c",
-                "9307b8e36eb1d7eb"
-            ]
-        ]
-    },
-    {
         "id": "9307b8e36eb1d7eb",
         "type": "link out",
         "z": "8b1ca1acfb108a49",
@@ -1058,24 +1004,6 @@
         "x": 435,
         "y": 380,
         "wires": []
-    },
-    {
-        "id": "dabef90c583595b4",
-        "type": "ignition-tag-read-ws",
-        "z": "8b1ca1acfb108a49",
-        "server": "d7db35ef916ddc59",
-        "wholemsg": "false",
-        "hb": "",
-        "tagPath": "[default]Devices/MODE",
-        "name": "MODE",
-        "x": 330,
-        "y": 580,
-        "wires": [
-            [
-                "eabdd7ac605fdbb2",
-                "3df41ac1178db35b"
-            ]
-        ]
     },
     {
         "id": "3df41ac1178db35b",
@@ -1124,24 +1052,6 @@
         ]
     },
     {
-        "id": "77f1787536399c86",
-        "type": "ignition-tag-read-ws",
-        "z": "8b1ca1acfb108a49",
-        "server": "d7db35ef916ddc59",
-        "wholemsg": "false",
-        "hb": "",
-        "tagPath": "[default]Devices/Speed",
-        "name": "Speed",
-        "x": 1050,
-        "y": 320,
-        "wires": [
-            [
-                "eea3263bd72c45a2",
-                "e9788eb1460f40cf"
-            ]
-        ]
-    },
-    {
         "id": "e9788eb1460f40cf",
         "type": "link out",
         "z": "8b1ca1acfb108a49",
@@ -1179,29 +1089,11 @@
         "links": [
             "f4281a1d65055f9a"
         ],
-        "x": 815,
+        "x": 825,
         "y": 320,
         "wires": [
             [
                 "77f1787536399c86"
-            ]
-        ]
-    },
-    {
-        "id": "78f642883b4edf02",
-        "type": "ignition-tag-write",
-        "z": "8b1ca1acfb108a49",
-        "server": "d7db35ef916ddc59",
-        "value": "",
-        "valueType": "msg.payload",
-        "tagPath": "[default]Devices/Speed",
-        "tagValue": "",
-        "name": "Speed Actual",
-        "x": 1470,
-        "y": 440,
-        "wires": [
-            [
-                "1583e92cd2e91ca1"
             ]
         ]
     },
@@ -1260,24 +1152,6 @@
             [
                 "591b8f177b7a3eb7",
                 "adb45fcc79670420"
-            ]
-        ]
-    },
-    {
-        "id": "b68dcc65524f0e1b",
-        "type": "ignition-tag-read-ws",
-        "z": "8b1ca1acfb108a49",
-        "server": "d7db35ef916ddc59",
-        "wholemsg": "false",
-        "hb": "",
-        "tagPath": "[default]Devices/Speed_SP",
-        "name": "Speed_SP",
-        "x": 350,
-        "y": 700,
-        "wires": [
-            [
-                "d8510d266a5de9b9",
-                "f983035f386e0947"
             ]
         ]
     },
@@ -1568,24 +1442,6 @@
         ]
     },
     {
-        "id": "d650d64fd016fb33",
-        "type": "ignition-tag-write",
-        "z": "8b1ca1acfb108a49",
-        "server": "d7db35ef916ddc59",
-        "value": "",
-        "valueType": "msg.payload",
-        "tagPath": "[default]Devices/ObstacleDectect",
-        "tagValue": "",
-        "name": "ObstacleDectect",
-        "x": 1480,
-        "y": 680,
-        "wires": [
-            [
-                "ef19c4f34f4c4b29"
-            ]
-        ]
-    },
-    {
         "id": "788c4ffabd0d857e",
         "type": "function",
         "z": "8b1ca1acfb108a49",
@@ -1693,6 +1549,150 @@
         "x": 1110,
         "y": 540,
         "wires": []
+    },
+    {
+        "id": "78f642883b4edf02",
+        "type": "ignition-tag-write",
+        "z": "8b1ca1acfb108a49",
+        "server": "d7db35ef916ddc59",
+        "value": "",
+        "valueType": "msg.payload",
+        "tagPath": "[default]Devices/Speed",
+        "tagValue": "",
+        "name": "Speed Actual",
+        "x": 1470,
+        "y": 440,
+        "wires": [
+            [
+                "1583e92cd2e91ca1"
+            ]
+        ]
+    },
+    {
+        "id": "d650d64fd016fb33",
+        "type": "ignition-tag-write",
+        "z": "8b1ca1acfb108a49",
+        "server": "d7db35ef916ddc59",
+        "value": "",
+        "valueType": "msg.payload",
+        "tagPath": "[default]Devices/ObstacleDectect",
+        "tagValue": "",
+        "name": "ObstacleDectect",
+        "x": 1480,
+        "y": 680,
+        "wires": [
+            [
+                "ef19c4f34f4c4b29"
+            ]
+        ]
+    },
+    {
+        "id": "c855bb5a8514e247",
+        "type": "ignition-tag-read-ws",
+        "z": "8b1ca1acfb108a49",
+        "server": "d7db35ef916ddc59",
+        "wholemsg": "false",
+        "hb": "",
+        "tagPath": "[default]Devices/Direction",
+        "name": "Direction",
+        "x": 340,
+        "y": 320,
+        "wires": [
+            [
+                "49fd9a567d7d8f01",
+                "f9a34e284dd7101d"
+            ]
+        ]
+    },
+    {
+        "id": "16160add12e02be4",
+        "type": "ignition-tag-read-ws",
+        "z": "8b1ca1acfb108a49",
+        "server": "d7db35ef916ddc59",
+        "wholemsg": "false",
+        "hb": "",
+        "tagPath": "[default]Devices/Light control",
+        "name": "Light Control",
+        "x": 350,
+        "y": 440,
+        "wires": [
+            [
+                "4fc98f576fb0d57c",
+                "9307b8e36eb1d7eb"
+            ]
+        ]
+    },
+    {
+        "id": "dabef90c583595b4",
+        "type": "ignition-tag-read-ws",
+        "z": "8b1ca1acfb108a49",
+        "server": "d7db35ef916ddc59",
+        "wholemsg": "false",
+        "hb": "",
+        "tagPath": "[default]Devices/MODE",
+        "name": "MODE",
+        "x": 330,
+        "y": 580,
+        "wires": [
+            [
+                "eabdd7ac605fdbb2",
+                "3df41ac1178db35b"
+            ]
+        ]
+    },
+    {
+        "id": "77f1787536399c86",
+        "type": "ignition-tag-read-ws",
+        "z": "8b1ca1acfb108a49",
+        "server": "d7db35ef916ddc59",
+        "wholemsg": "false",
+        "hb": "",
+        "tagPath": "[default]Devices/Speed",
+        "name": "Speed",
+        "x": 1050,
+        "y": 320,
+        "wires": [
+            [
+                "eea3263bd72c45a2",
+                "e9788eb1460f40cf"
+            ]
+        ]
+    },
+    {
+        "id": "b68dcc65524f0e1b",
+        "type": "ignition-tag-read-ws",
+        "z": "8b1ca1acfb108a49",
+        "server": "d7db35ef916ddc59",
+        "wholemsg": "false",
+        "hb": "",
+        "tagPath": "[default]Devices/Speed_SP",
+        "name": "Speed_SP",
+        "x": 350,
+        "y": 700,
+        "wires": [
+            [
+                "d8510d266a5de9b9",
+                "f983035f386e0947"
+            ]
+        ]
+    },
+    {
+        "id": "9b101471f13ab847",
+        "type": "ignition-tag-browse",
+        "z": "8b1ca1acfb108a49",
+        "server": "d7db35ef916ddc59",
+        "value": "",
+        "valueType": "msg.payload",
+        "tagPath": "[default]Devices",
+        "name": "All Tags",
+        "x": 340,
+        "y": 220,
+        "wires": [
+            [
+                "fd8024edbc935394",
+                "d72624e6ed3a9fa7"
+            ]
+        ]
     },
     {
         "id": "4eacc24f99e3edd8",
